@@ -10,8 +10,8 @@ import Wallet from "./components/Wallet";
 function App() {
   return (
     <>
-      {/* <Home /> */}
-      <Wallet />
+      <Home />
+      {/* <Wallet /> */}
     </>
   );
 }
