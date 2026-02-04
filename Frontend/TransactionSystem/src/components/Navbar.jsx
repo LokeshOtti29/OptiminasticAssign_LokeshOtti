@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           TransactionSystem
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -19,21 +20,38 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Wallet
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Order
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Logout
-              </a>
-            </li>
+            {isLoggedIn && (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/order">
+                    Order
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/wallet">
+                    Wallet
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <button
+                    className="nav-link btn btn-link text-white"
+                    onClick={onLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            )}
+
+            {!isLoggedIn && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
