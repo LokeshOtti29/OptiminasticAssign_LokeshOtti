@@ -6,7 +6,7 @@ import ListOfOrders from "./ListOfOrders";
 import TotalWallet from "./TotalWallet";
 
 const Home = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
     <div>
       <Navbar isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
